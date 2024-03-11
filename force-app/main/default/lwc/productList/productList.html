@@ -1,0 +1,43 @@
+<template>
+    <lightning-card title="Search Product" icon-name="utility:search">
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item size="6">
+                <lightning-input label="Search Product" placeholder="Search Product" onchange={handleChange}
+                    variant="label-hidden"> </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="2">
+                <lightning-button label="Search" onclick={handleSearch}></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item class="slds-m-vertical_medium" size="12">
+                <lightning-datatable 
+                 key-field="Id"
+                 data={products} columns={columns}
+                 sorted-direction={sortDirection}
+                 sorted-by={sortedBy}
+                 onsort={handleSort}
+                 onrowselection={handleSelection}
+                 selected-rows={selectedProducts}
+                 suppress-bottom-bar
+                 is-loading={isDataLoading}>
+                </lightning-datatable>
+            </lightning-layout-item>
+            <lightning-layout-item size="12">
+                <div class="pagination">
+                    <lightning-button-group>
+                        <lightning-button disabled={disablePrev} label="First" onclick={handleFirst}></lightning-button>
+                        <lightning-button disabled={disablePrev} label="Previous" onclick={handlePrev}>
+                        </lightning-button>
+                    </lightning-button-group>
+                    <lightning-button-group>
+                        <lightning-button disabled={disableNext} label="Next" onclick={handleNext}></lightning-button>
+                        <lightning-button label="Last" disabled={disableNext} onclick={handleLast}></lightning-button>
+                    </lightning-button-group>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item class="slds-align_absolute-center">
+                <lightning-button onclick={handleAddToCart} label="Add to cart"></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+
+    </lightning-card>
+</template>

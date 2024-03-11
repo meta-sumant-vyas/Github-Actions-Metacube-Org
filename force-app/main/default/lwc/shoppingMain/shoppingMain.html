@@ -1,0 +1,26 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12">
+            <lightning-button
+            label="My Orders"
+            onclick={openMyOrders}
+            ></lightning-button>
+            <lightning-button if:false={isCartEmpty}
+            label="Go to cart"
+            onclick={openCart}
+            ></lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="12">
+            <template if:true={isMyOrdersOpen}>
+                <c-my-orders  onopenproductlist={openProductList} onopencart={openCart}></c-my-orders>
+            </template>
+            <template if:true={isProductListOpen}>
+                <c-product-list onselectedproducts={getSelectedProducts}></c-product-list>
+            </template>
+            <template if:true={isCartOpen}>
+                <c-product-cart onemptycart={handleEmptyCart} onupdatedraft={handleDraftUpdate} ondeleteproduct={handleDeleteFromCart} products={productInCart}></c-product-cart>
+            </template>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

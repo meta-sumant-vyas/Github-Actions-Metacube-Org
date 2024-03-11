@@ -1,0 +1,18 @@
+<template>
+    <div>
+        <lightning-card>
+            <div class="slds-text-heading_medium slds-text-align_center">Create Contact LWC</div>
+            <form class="slds-p-around_large">
+                <lightning-input label="First Name" name="FirstName" onchange={handleChange}></lightning-input>
+                <lightning-input label="Last Name" name="LastName" onchange={handleChange} required="true">
+                </lightning-input>
+                <lightning-input type="email" label="Email" name="Email" onchange={handleChange}></lightning-input>
+                <lightning-input min="10" max="10" type="tel" label="Phone" name="Phone" onchange={handleChange}></lightning-input>
+                <lightning-input label="Fax" name="Fax" onchange={handleChange}></lightning-input>
+                <lightning-button  class="slds-m-top_large" label="Create Contact" variant="brand"
+                    onclick={handleCreate}></lightning-button>
+            </form>
+        </lightning-card>
+    </div>
+
+</template>

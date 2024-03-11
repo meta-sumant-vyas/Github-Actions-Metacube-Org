@@ -1,0 +1,25 @@
+<template>
+    <div class="slds-select_container">
+        <label for="picklist1">Picklist 2</label>
+
+        <select id="picklist1" class="slds-select" 
+                onchange={selectionChangeHandler1} 
+               >
+            <option value="Select">Select</option>
+            <template for:each={options1} for:item="option1">
+                <option key={option1} class="uiInputSelectOption" value={option1}>{option1}</option>
+            </template>
+        </select>
+    </div>
+    <div class="slds-select_container">
+        <label for="picklist2">Picklist 2</label>
+        <select id="picklist2" class="slds-select" 
+                onchange={selectionChangeHandler2} 
+                >
+            <option >Select</option>
+            <template for:each={options2} for:item="option2">
+                <option key={option2} class="uiInputSelectOption" value={option2}>{option2}</option>
+            </template>
+        </select>
+    </div>
+</template>

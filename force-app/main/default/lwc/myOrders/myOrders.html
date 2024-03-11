@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="My Orders" icon-name="standard:webcart">
+        <lightning-datatable
+        key-field="Id"
+        data={myOrders}
+        columns={columns}
+        sorted-direction={sortDirection}
+        sorted-by={sortedBy}
+        onsort={handleSort}
+        is-loading={isDataLoading}
+        class="slds-m-around_medium"
+        ></lightning-datatable>
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item size="12" class="pagination-btns">
+                <lightning-button-group>
+                    <lightning-button disabled={disablePrev} label="First" onclick={handleFirst}></lightning-button>
+                    <lightning-button disabled={disablePrev} label="Previous" onclick={handlePrev}></lightning-button>
+                </lightning-button-group>
+                <lightning-button-group>
+                    <lightning-button disabled={disableNext} label="Next" onclick={handleNext}></lightning-button>
+                    <lightning-button label="Last"  disabled={disableNext}  onclick={handleLast}></lightning-button>
+                </lightning-button-group>
+            </lightning-layout-item >
+            <lightning-layout-item size="12" class="slds-align_absolute-center">
+                <lightning-button 
+                label="Add new Purchase Order"
+                onclick={openProductList}
+                ></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>

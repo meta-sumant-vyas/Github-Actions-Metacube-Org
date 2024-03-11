@@ -1,0 +1,46 @@
+<template>
+    <lightning-card title={cardTitle} icon-name="standard:webcart">
+        <div if:true={isOrderProcessing}>
+            <lightning-spinner></lightning-spinner>
+        </div>
+        <template if:true={isCartEmpty}>
+            <h1>Cart Is Empty.</h1>
+        </template>
+      
+        <template if:false={isCartEmpty}>
+            <lightning-layout multiple-rows="true">
+                <lightning-layout-item size="12">
+                    <div if:true={isInvoice} class="slds-float_right slds-m-bottom_medium">
+                        Date: <span class="date">{todayDate}</span>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <lightning-datatable 
+                    key-field="Id"
+                    data={products}
+                    columns={columns}
+                    onrowaction={handleRowAction}
+                    oncellchange={handelCellChange}
+                    onsave={onSave}
+                    hide-checkbox-column="true"
+                    suppress-bottom-bar="ture"
+                    ></lightning-datatable>
+                </lightning-layout-item>
+                <lightning-layout-item size="12"  class="btns slds-align_absolute-center slds-m-vertical_medium">
+                        <lightning-button if:false={isInvoice}
+                        label="Check Out"
+                        onclick={handleChackOut}    
+                        ></lightning-button>
+                        <lightning-button
+                        if:true={isInvoice}
+                        label="Place Order"
+                        onclick={handlePlaceOrder}
+                        ></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+      
+        </template>
+     
+    </lightning-card>
+
+</template>

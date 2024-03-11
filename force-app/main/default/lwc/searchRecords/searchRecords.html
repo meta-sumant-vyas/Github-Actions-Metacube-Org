@@ -1,0 +1,15 @@
+<template>
+    <lightning-card>
+        <c-search-input 
+        input-id="searchInput"
+        input-placeholder="Search Records..."
+        btn-label="Go"
+        onsearch={handleSearch}
+        ></c-search-input>
+        <lightning-datatable
+        key-field="Id"
+        data={records}
+        columns={columns}
+        ></lightning-datatable>
+    </lightning-card>
+</template>
