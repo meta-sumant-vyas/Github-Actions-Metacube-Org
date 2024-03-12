@@ -1,11 +1,12 @@
 name: validate org
 
 on:
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'force-app/**'
+  workflow_dispatch:
+  # pull_request:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - 'force-app/**'
 jobs:
   validate:
     runs-on: ubuntu-latest
