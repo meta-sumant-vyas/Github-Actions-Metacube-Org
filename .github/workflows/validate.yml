@@ -9,7 +9,7 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    setps:
+    steps:
       - uses: actions/checkout@v3
       - name: Validate On org
         uses: jawills/sf-deploy@v1.0
